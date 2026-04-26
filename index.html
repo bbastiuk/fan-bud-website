@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0a0b" />
+<title>FAN-BUD — Budowa lub rozbiórka | Poznań i Wielkopolska</title>
+<meta name="description" content="FAN-BUD. Generalne wykonawstwo, roboty betonowe, murarskie i wyburzenia w Poznaniu i Wielkopolsce. Własna ekipa. Terminowo. Solidnie." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Bebas+Neue&family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="preload" as="image" href="assets/images/hero.jpg" fetchpriority="high">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- SVG sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-logo" viewBox="0 0 48 48">
+      <path d="M6 24L24 7l18 17v3h-4v14H10V27H6v-3z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M19 26h10M24 22v8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="16" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="8" cy="14" r=".9" fill="currentColor"/>
+      <circle cx="12" cy="14" r=".9" fill="currentColor"/>
+      <circle cx="16" cy="14" r=".9" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-building" viewBox="0 0 24 24">
+      <path d="M4 21V6l8-3v18M12 21V9l8 3v9M4 21h16" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+      <path d="M7 9v1.5M7 13v1.5M7 17v1.5M16 15v1.5M16 18.5v.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-team" viewBox="0 0 24 24">
+      <circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <circle cx="17" cy="9" r="2.2" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 20c0-2.3 1.7-4.3 4-4.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+    </symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24">
+      <path d="M12 3l8 3v5c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+      <path d="M8.5 12l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-concrete" viewBox="0 0 52 52">
+      <circle cx="24" cy="26" r="11" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M18 26c0-3 2-5 5-6M23 20l3 6-6 4 3-10z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M10 38h28M13 42h22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="24" cy="26" r="2" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-brick" viewBox="0 0 52 52">
+      <rect x="9" y="12" width="34" height="28" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M9 21h34M9 30h34M20 12v9M32 12v9M15 21v9M28 21v9M40 21v9M20 30v10M32 30v10" stroke="currentColor" stroke-width="1.6"/>
+    </symbol>
+    <symbol id="i-demo" viewBox="0 0 52 52">
+      <path d="M8 40h36" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M10 40V24l12-4v20M22 40V14l10 4v22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M14 28h4M14 32h4M26 20h4M26 26h4M26 32h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M36 16l5-5M38 20l5-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="41" cy="11" r="2" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24">
+      <path d="M6 3h3l2 5-3 2a12 12 0 006 6l2-3 5 2v3a3 3 0 01-3 3A17 17 0 013 6a3 3 0 013-3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24">
+      <path d="M14 3H6v18h12V7l-4-4z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+      <path d="M14 3v4h4M9 12h6M9 16h6M9 8h2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-helmet" viewBox="0 0 24 24">
+      <path d="M3 17h18v2H3zM5 17V13a7 7 0 0114 0v4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+      <path d="M10 6v6M14 6v6M3 17h18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <path d="M7 12l3.5 3.5L17 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 22 12">
+      <path d="M1 6h19M15 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-arrow-diag" viewBox="0 0 16 16">
+      <path d="M4 12L12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="14" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <path d="M3 7l9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24">
+      <path d="M12 22s-7-7-7-12a7 7 0 0114 0c0 5-7 12-7 12z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+      <circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.4"/>
+    </symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24">
+      <path d="M14 9h3V5h-3c-2.2 0-4 1.8-4 4v2H7v4h3v8h4v-8h3l1-4h-4V9a1 1 0 011-1z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24">
+      <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="17.5" cy="6.5" r=".9" fill="currentColor"/>
+    </symbol>
+    <!-- TikTok mark -->
+    <symbol id="i-tt" viewBox="0 0 24 24">
+      <path d="M16 3v3.5a3.5 3.5 0 003.5 3.5M16 3h-3v11a2.5 2.5 0 11-2.5-2.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <!-- Careers / people icon -->
+    <symbol id="i-people" viewBox="0 0 24 24">
+      <circle cx="8" cy="7" r="3" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <circle cx="16" cy="7" r="3" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.5 1.4-4.7 3.5-5.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#" class="logo">
+      <img src="assets/images/logo_transparent.png" class="logo__img" alt="FAN-BUD">
+    </a>
+
+    <nav class="nav">
+      <a href="#services" data-i18n="nav.services">Usługi</a>
+      <a href="#about" data-i18n="nav.about">O nas</a>
+      <a href="#process" data-i18n="nav.process">Jak działamy</a>
+      <a href="#careers" data-i18n="nav.careers">Kariera</a>
+      <a href="#contact" data-i18n="nav.contact">Kontakt</a>
+    </nav>
+
+    <div class="h-right">
+      <div class="lang" id="langDesktop">
+        <button class="active" data-lang="pl">PL</button>
+        <span class="lang__sep">/</span>
+        <button data-lang="ua">UA</button>
+      </div>
+      <a href="#contact" class="btn btn-primary btn--sm" data-i18n="header.cta">Bezpłatna wycena</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="m-menu" id="mMenu">
+  <ul>
+    <li><a href="#services" data-i18n="nav.services">Usługi</a></li>
+    <li><a href="#about" data-i18n="nav.about">O nas</a></li>
+    <li><a href="#process" data-i18n="nav.process">Jak działamy</a></li>
+    <li><a href="#careers" data-i18n="nav.careers">Kariera</a></li>
+    <li><a href="#contact" data-i18n="nav.contact">Kontakt</a></li>
+  </ul>
+  <div class="m-menu__foot">
+    <div class="m-menu__contact">
+      <small data-i18n="m.contact.label">Zadzwoń do nas</small>
+      <a href="tel:+48730716692">+48 730 716 692</a>
+    </div>
+    <a href="#contact" class="btn btn-primary" style="width:100%" data-i18n="header.cta">Bezpłatna wycena</a>
+  </div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero__bg">
+    <img
+      src="assets/images/hero.jpg"
+      alt="Plac budowy z koparką i dźwigiem wieżowym o zachodzie słońca"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="hero__vignette"></div>
+  </div>
+
+  <div class="hero__index">01 — Strona główna</div>
+
+  <div class="container">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <div class="eyebrow"><span data-i18n="hero.eyebrow">Poznań · Wielkopolska</span> <span class="eyebrow__num">2023</span></div>
+        <h1>
+          <span class="line"><span data-i18n="hero.h1.line1">Budowa</span></span>
+          <span class="line"><span data-i18n="hero.h1.line2">lub</span></span>
+          <span class="line"><span class="gold" data-i18n="hero.h1.line3">rozbiórka</span></span>
+        </h1>
+        <div class="hero__slogan" data-i18n="hero.slogan">FAN-BUD — Fani swojej pracy</div>
+        <p class="hero__desc" data-i18n="hero.desc">Generalne wykonawstwo, roboty betonowe, murarskie i&nbsp;wyburzenia dla inwestorów w&nbsp;Poznaniu i&nbsp;całej Wielkopolsce. Własna ekipa. Terminowo. Solidnie.</p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Bezpłatna wycena</a>
+          <a href="#about" class="btn btn-ghost" data-i18n-btn-ghost="hero.cta2">
+            <span data-i18n="hero.cta2">O firmie</span>
+            <span class="arrow"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__caption">
+    <small data-i18n="hero.trust.label">Certyfikowany wykonawca</small>
+  </div>
+
+  <div class="hero__scroll">
+    <span>Scroll</span>
+    <div class="hero__scroll__line"></div>
+  </div>
+
+  <!-- Stats strip -->
+  <div class="stats">
+    <div class="container">
+      <div class="stats__grid">
+        <div class="stat">
+          <div class="stat__icon"><svg><use href="#i-cal"/></svg></div>
+          <div>
+            <div class="stat__num gold" data-i18n="stat.1.num">10<span style="font-size:.7em">+</span></div>
+            <div class="stat__label" data-i18n="stat.1.label">Lata doświadczenia</div>
+          </div>
+        </div>
+        <div class="stat">
+          <div class="stat__icon"><svg><use href="#i-building"/></svg></div>
+          <div>
+            <div class="stat__num gold" data-i18n="stat.2.num">150<span style="font-size:.7em">+</span></div>
+            <div class="stat__label" data-i18n="stat.2.label">Zrealizowanych projektów</div>
+          </div>
+        </div>
+        <div class="stat">
+          <div class="stat__icon"><svg><use href="#i-team"/></svg></div>
+          <div>
+            <div class="stat__num gold" data-i18n="stat.3.num">100%</div>
+            <div class="stat__label" data-i18n="stat.3.label">Własna ekipa</div>
+          </div>
+        </div>
+        <div class="stat">
+          <div class="stat__icon"><svg><use href="#i-shield"/></svg></div>
+          <div>
+            <div class="stat__num gold" data-i18n="stat.4.num">Gwarancja</div>
+            <div class="stat__label" data-i18n="stat.4.label">Jakości wykonania</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="eyebrow"><span data-i18n="services.eyebrow">Usługi</span> <span class="eyebrow__num">02</span></div>
+      <h2 class="s-title" data-i18n="services.title">Co <span class="gold">robimy</span></h2>
+    </div>
+
+    <div class="services">
+      <div class="service reveal" data-delay="1">
+        <div class="service__bg" style="background-image:url('assets/images/services/concrete.jpg')"></div>
+        <div class="service__num">01</div>
+        <svg class="service__icon"><use href="#i-concrete"/></svg>
+        <div class="service__body">
+          <h3 class="service__title" data-i18n="service.1.title">Roboty<br>betonowe</h3>
+        </div>
+        <div class="service__line"></div>
+      </div>
+
+      <div class="service reveal" data-delay="2">
+        <div class="service__bg" style="background-image:url('assets/images/services/masonry.jpg')"></div>
+        <div class="service__num">02</div>
+        <svg class="service__icon"><use href="#i-brick"/></svg>
+        <div class="service__body">
+          <h3 class="service__title" data-i18n="service.2.title">Roboty<br>murarskie</h3>
+        </div>
+        <div class="service__line"></div>
+      </div>
+
+      <div class="service reveal" data-delay="3">
+        <div class="service__bg" style="background-image:url('assets/images/services/demolition.jpg')"></div>
+        <div class="service__num">03</div>
+        <svg class="service__icon"><use href="#i-demo"/></svg>
+        <div class="service__body">
+          <h3 class="service__title" data-i18n="service.3.title">Wyburzenia<br>i&nbsp;rozbiórki</h3>
+        </div>
+        <div class="service__line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="section section--pt-0" id="about">
+  <div class="container">
+    <div class="about reveal">
+      <div class="about__content">
+        <div class="eyebrow"><span data-i18n="about.eyebrow">O nas</span> <span class="eyebrow__num">03</span></div>
+        <h2 class="about__title" data-i18n="about.title">Budujemy<br>zaufanie</h2>
+        <p class="about__desc" data-i18n="about.desc">FAN-BUD to doświadczony zespół specjalistów z&nbsp;Poznania. Realizujemy projekty od fundamentów po kompleksowe wyburzenia — zawsze z&nbsp;pełnym zaangażowaniem i&nbsp;odpowiedzialnością za każdy detal.</p>
+
+        <div class="about__marks">
+          <div class="about__mark">
+            <svg><use href="#i-check"/></svg>
+            <span data-i18n="about.mark.1">Własna wykwalifikowana ekipa</span>
+          </div>
+          <div class="about__mark">
+            <svg><use href="#i-check"/></svg>
+            <span data-i18n="about.mark.2">Ubezpieczenie OC 1&nbsp;mln&nbsp;zł</span>
+          </div>
+          <div class="about__mark">
+            <svg><use href="#i-check"/></svg>
+            <span data-i18n="about.mark.3">Certyfikaty jakości ISO</span>
+          </div>
+          <div class="about__mark">
+            <svg><use href="#i-check"/></svg>
+            <span data-i18n="about.mark.4">Bezpłatna wycena w&nbsp;48h</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about__image">
+        <img src="assets/images/about.jpg" alt="Pracownik FAN-BUD na placu budowy" loading="lazy">
+        <div class="about__badge">
+          <div class="about__badge__num" data-i18n="about.badge.num">10</div>
+          <div class="about__badge__lbl" data-i18n="about.badge.lbl">Lata na rynku budowlanym</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROCESS ===================== -->
+<section class="section section--pt-0" id="process">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="eyebrow"><span data-i18n="process.eyebrow">Jak działamy</span> <span class="eyebrow__num">04</span></div>
+      <h2 class="s-title" data-i18n="process.title">Prosty <span class="gold">proces</span></h2>
+    </div>
+
+    <div class="process reveal">
+      <div class="step">
+        <div class="step__icon"><svg><use href="#i-phone"/></svg></div>
+        <div class="step__num" data-i18n="step.1.num">01 · Krok</div>
+        <div class="step__title" data-i18n="step.1.title">Kontakt</div>
+        <p class="step__desc" data-i18n="step.1.desc">Zadzwoń lub napisz do nas — odpowiadamy w&nbsp;ciągu 24&nbsp;godzin.</p>
+      </div>
+      <div class="step">
+        <div class="step__icon"><svg><use href="#i-doc"/></svg></div>
+        <div class="step__num" data-i18n="step.2.num">02 · Krok</div>
+        <div class="step__title" data-i18n="step.2.title">Wycena</div>
+        <p class="step__desc" data-i18n="step.2.desc">Bezpłatna wycena i&nbsp;ustalenie pełnego zakresu prac.</p>
+      </div>
+      <div class="step">
+        <div class="step__icon"><svg><use href="#i-helmet"/></svg></div>
+        <div class="step__num" data-i18n="step.3.num">03 · Krok</div>
+        <div class="step__title" data-i18n="step.3.title">Realizacja</div>
+        <p class="step__desc" data-i18n="step.3.desc">Wykonujemy prace terminowo i&nbsp;na bieżąco informujemy o&nbsp;postępach.</p>
+      </div>
+      <div class="step">
+        <div class="step__icon"><svg><use href="#i-check"/></svg></div>
+        <div class="step__num" data-i18n="step.4.num">04 · Krok</div>
+        <div class="step__title" data-i18n="step.4.title">Odbiór</div>
+        <p class="step__desc" data-i18n="step.4.desc">Oddajemy gotowy obiekt z&nbsp;pełną dokumentacją i&nbsp;gwarancją.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BLUEPRINT ===================== -->
+<section class="section section--pt-0 blueprint" id="blueprint">
+  <div class="container">
+    <div class="blueprint__wrap">
+      <div class="blueprint__text reveal">
+        <div class="eyebrow"><span data-i18n="blueprint.eyebrow">Nasze DNA</span> <span class="eyebrow__num">05</span></div>
+        <h2 class="s-title" data-i18n="blueprint.title">Precyzja<br><span class="gold">w każdym projekcie</span></h2>
+        <p class="blueprint__desc" data-i18n="blueprint.desc">Każda realizacja to inżynierski dokument — każda linia obliczona, każdy etap zaplanowany i wykonany bez kompromisów.</p>
+      </div>
+      <div class="blueprint__drawing reveal" id="blueprintSvg">
+        <svg viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg" fill="none" class="bp-svg" aria-hidden="true">
+          <!-- Ground -->
+          <line x1="60" y1="345" x2="840" y2="345" class="bp-l" style="--bd:0s"/>
+          <!-- Outer walls -->
+          <line x1="100" y1="345" x2="100" y2="80" class="bp-l" style="--bd:.15s"/>
+          <line x1="800" y1="345" x2="800" y2="80" class="bp-l" style="--bd:.22s"/>
+          <!-- Roof peak -->
+          <polyline points="80,80 450,14 820,80" class="bp-l" style="--bd:.35s"/>
+          <!-- Roof base -->
+          <line x1="80" y1="80" x2="820" y2="80" class="bp-l" style="--bd:.5s"/>
+          <!-- Floor divider -->
+          <line x1="100" y1="220" x2="800" y2="220" class="bp-l" style="--bd:.62s"/>
+          <!-- Columns -->
+          <line x1="280" y1="80" x2="280" y2="345" class="bp-l" style="--bd:.72s"/>
+          <line x1="450" y1="80" x2="450" y2="345" class="bp-l" style="--bd:.78s"/>
+          <line x1="620" y1="80" x2="620" y2="345" class="bp-l" style="--bd:.84s"/>
+          <!-- Upper windows -->
+          <rect x="120" y="102" width="130" height="85" rx="1" class="bp-l" style="--bd:.94s"/>
+          <rect x="300" y="102" width="120" height="85" rx="1" class="bp-l" style="--bd:1.02s"/>
+          <rect x="480" y="102" width="120" height="85" rx="1" class="bp-l" style="--bd:1.08s"/>
+          <rect x="650" y="102" width="130" height="85" rx="1" class="bp-l" style="--bd:1.14s"/>
+          <!-- Lower windows left -->
+          <rect x="120" y="240" width="120" height="72" rx="1" class="bp-l" style="--bd:1.2s"/>
+          <rect x="300" y="240" width="80" height="72" rx="1" class="bp-l" style="--bd:1.26s"/>
+          <!-- Center door -->
+          <rect x="410" y="258" width="80" height="87" rx="1" class="bp-l" style="--bd:1.32s"/>
+          <!-- Lower windows right -->
+          <rect x="520" y="240" width="80" height="72" rx="1" class="bp-l" style="--bd:1.38s"/>
+          <rect x="660" y="240" width="120" height="72" rx="1" class="bp-l" style="--bd:1.44s"/>
+          <!-- Dimension line horizontal -->
+          <line x1="100" y1="362" x2="800" y2="362" class="bp-dim" style="--bd:1.6s"/>
+          <line x1="100" y1="356" x2="100" y2="368" class="bp-dim" style="--bd:1.6s"/>
+          <line x1="800" y1="356" x2="800" y2="368" class="bp-dim" style="--bd:1.6s"/>
+          <!-- Dimension line vertical -->
+          <line x1="36" y1="80" x2="36" y2="345" class="bp-dim" style="--bd:1.68s"/>
+          <line x1="30" y1="80" x2="42" y2="80" class="bp-dim" style="--bd:1.68s"/>
+          <line x1="30" y1="345" x2="42" y2="345" class="bp-dim" style="--bd:1.68s"/>
+          <!-- Accent dots -->
+          <circle cx="100" cy="80" r="3.5" class="bp-dot" style="--bd:1.5s"/>
+          <circle cx="800" cy="80" r="3.5" class="bp-dot" style="--bd:1.52s"/>
+          <circle cx="450" cy="14" r="3.5" class="bp-dot" style="--bd:1.54s"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CAREERS ===================== -->
+<section class="section section--pt-0 careers" id="careers">
+  <div class="container">
+    <div class="careers__head reveal">
+      <div>
+        <div class="eyebrow"><span data-i18n="careers.eyebrow">Kariera</span> <span class="eyebrow__num">06</span></div>
+        <h2 class="s-title" data-i18n="careers.title">Dołącz do <span class="gold">zespołu</span></h2>
+      </div>
+    </div>
+
+    <div class="careers__grid reveal">
+      <div class="careers__info">
+        <p class="careers__desc" data-i18n="careers.desc">Szukamy doświadczonych pracowników budowlanych. Oferujemy stabilne zatrudnienie, godziwe wynagrodzenie i pracę w&nbsp;zgranym zespole.</p>
+        <div class="careers__slogan">FAN-BUD — Fani swojej pracy</div>
+        <ul class="careers__perks">
+          <li class="careers__perk">
+            <svg><use href="#i-check"/></svg>
+            <span data-i18n="careers.perk.1">Stabilne zatrudnienie</span>
+          </li>
+          <li class="careers__perk">
+            <svg><use href="#i-check"/></svg>
+            <span data-i18n="careers.perk.2">Godziwe wynagrodzenie</span>
+          </li>
+          <li class="careers__perk">
+            <svg><use href="#i-check"/></svg>
+            <span data-i18n="careers.perk.3">Praca w zgranym zespole</span>
+          </li>
+          <li class="careers__perk">
+            <svg><use href="#i-check"/></svg>
+            <span data-i18n="careers.perk.4">Nowoczesny sprzęt</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="careers__form-wrap">
+        <form class="careers__form" id="careersForm" novalidate>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cf-fname" data-i18n="careers.fname">Imię</label>
+              <input type="text" id="cf-fname" name="fname" autocomplete="given-name" required>
+            </div>
+            <div class="form-field">
+              <label for="cf-lname" data-i18n="careers.lname">Nazwisko</label>
+              <input type="text" id="cf-lname" name="lname" autocomplete="family-name" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cf-phone" data-i18n="careers.phone">Telefon</label>
+              <input type="tel" id="cf-phone" name="phone" autocomplete="tel" required>
+            </div>
+            <div class="form-field">
+              <label for="cf-email" data-i18n="careers.email">E-mail</label>
+              <input type="email" id="cf-email" name="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary careers__submit">
+              <span data-i18n="careers.submit">Wyślij zgłoszenie</span>
+              <svg width="20" height="11"><use href="#i-arrow"/></svg>
+            </button>
+            <div class="form-success" id="formSuccess" aria-live="polite">
+              <svg><use href="#i-check"/></svg>
+              <span data-i18n="careers.success">Dziękujemy! Skontaktujemy się wkrótce.</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA / CONTACT ===================== -->
+<section class="cta" id="contact">
+  <div class="cta__bg">
+    <img src="assets/images/cta-bg.jpg" alt="" loading="lazy">
+  </div>
+  <div class="container cta__inner">
+    <div>
+      <div class="eyebrow"><span data-i18n="cta.eyebrow">Kontakt</span> <span class="eyebrow__num">07</span></div>
+      <h2 class="cta__title" data-i18n="cta.title">Masz pytania?<br><span class="gold">Zadzwoń do nas</span></h2>
+      <p class="cta__desc" data-i18n="cta.desc">Odpowiadamy w&nbsp;ciągu 24&nbsp;godzin. Bezpłatna wycena, doradztwo techniczne, jasno określony zakres prac.</p>
+    </div>
+    <div class="cta__contacts">
+      <a href="tel:+48730716692" class="cta__row">
+        <div class="cta__row__icon"><svg><use href="#i-phone"/></svg></div>
+        <div>
+          <div class="cta__row__lbl" data-i18n="cta.phone.lbl">Telefon · 24/7</div>
+          <div class="cta__row__val">+48 730 716 692</div>
+        </div>
+      </a>
+      <a href="mailto:dombyk@fan-bud.com" class="cta__row">
+        <div class="cta__row__icon"><svg><use href="#i-mail"/></svg></div>
+        <div>
+          <div class="cta__row__lbl" data-i18n="cta.email.lbl">E-mail</div>
+          <div class="cta__row__val">dombyk@fan-bud.com</div>
+        </div>
+      </a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Bogdanowo+S%C5%82oneczna+1" target="_blank" rel="noopener" class="cta__row">
+        <div class="cta__row__icon"><svg><use href="#i-pin"/></svg></div>
+        <div>
+          <div class="cta__row__lbl" data-i18n="cta.address.lbl">Siedziba</div>
+          <div class="cta__row__val" data-i18n="cta.address.val">Bogdanowo, Słoneczna 1</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__about">
+        <a href="#" class="logo">
+          <img src="assets/images/logo_transparent.png" class="logo__img" alt="FAN-BUD">
+        </a>
+        <p data-i18n="footer.desc">Budowa lub&nbsp;rozbiórka obiektów w&nbsp;Poznaniu i&nbsp;Wielkopolsce. Generalne wykonawstwo dla&nbsp;wymagających inwestorów.</p>
+        <div class="footer__slogan" data-i18n="footer.slogan">Fani swojej pracy</div>
+        <div class="socials">
+          <a href="https://www.instagram.com/fanbud_poznan/" target="_blank" rel="noopener" class="social" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+          <a href="#" target="_blank" rel="noopener" class="social" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a>
+          <a href="https://www.tiktok.com/@fanbud_poznan" target="_blank" rel="noopener" class="social" aria-label="TikTok"><svg><use href="#i-tt"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.nav.title">Nawigacja</h4>
+        <ul>
+          <li><a href="#" data-i18n="footer.nav.home">Strona główna</a></li>
+          <li><a href="#services" data-i18n="footer.nav.services">Usługi</a></li>
+          <li><a href="#about" data-i18n="footer.nav.about">O nas</a></li>
+          <li><a href="#process" data-i18n="footer.nav.process">Jak działamy</a></li>
+          <li><a href="#careers" data-i18n="footer.nav.careers">Kariera</a></li>
+          <li><a href="#contact" data-i18n="footer.nav.contact">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.services.title">Usługi</h4>
+        <ul>
+          <li><a href="#" data-i18n="footer.services.1">Roboty betonowe</a></li>
+          <li><a href="#" data-i18n="footer.services.2">Roboty murarskie</a></li>
+          <li><a href="#" data-i18n="footer.services.3">Wyburzenia</a></li>
+          <li><a href="#" data-i18n="footer.services.4">Generalne wykonawstwo</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.contact.title">Kontakt</h4>
+        <a href="tel:+48730716692" class="footer__contact">
+          <svg><use href="#i-phone"/></svg>+48 730 716 692
+        </a>
+        <a href="mailto:dombyk@fan-bud.com" class="footer__contact">
+          <svg><use href="#i-mail"/></svg>dombyk@fan-bud.com
+        </a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Bogdanowo+S%C5%82oneczna+1" target="_blank" rel="noopener" class="footer__contact">
+          <svg><use href="#i-pin"/></svg>Bogdanowo, Słoneczna 1
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div data-i18n="footer.copy">© 2023 FAN-BUD. Wszystkie prawa zastrzeżone.</div>
+      <div style="display:flex;gap:var(--s-5);flex-wrap:wrap">
+        <a href="#" data-i18n="footer.privacy">Polityka prywatności</a>
+        <a href="#" data-i18n="footer.terms">Regulamin</a>
+        <span style="color:var(--line-2)">·</span>
+        <span>NIP: 6060101423</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
