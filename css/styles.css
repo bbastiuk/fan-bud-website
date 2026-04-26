@@ -1298,7 +1298,10 @@ body::before{
 /* ---------- 15. Mobile menu drawer ---------- */
 .m-menu{
   position:fixed;
-  top:0; left:0; right:0; bottom:0;
+  top:0; left:0; right:0;
+  /* iOS Safari: dynamic viewport prevents URL bar from revealing page underneath */
+  height:100vh;
+  height:100dvh;
   background:var(--ink);
   z-index:99;
   opacity:0;
@@ -1348,7 +1351,7 @@ body::before{
   transition:transform .7s var(--ease-3), opacity .5s var(--ease), color var(--t-fast) var(--ease);
   min-height:56px;
 }
-.m-menu a::before{
+.m-menu li > a::before{
   content:"0" counter(mitem);
   font-family:var(--f-display);
   font-weight:400;
@@ -1364,7 +1367,7 @@ body::before{
 .m-menu.open li:nth-child(4) a{transition-delay:.25s}
 .m-menu.open li:nth-child(5) a{transition-delay:.3s}
 .m-menu.open a{transform:translateY(0);opacity:1}
-.m-menu a::after{
+.m-menu li > a::after{
   content:"→";
   color:var(--gold);
   opacity:0;
@@ -1372,7 +1375,7 @@ body::before{
   transition:all var(--t) var(--ease);
 }
 .m-menu a:hover{color:var(--gold)}
-.m-menu a:hover::after{opacity:1;transform:translateX(0)}
+.m-menu li > a:hover::after{opacity:1;transform:translateX(0)}
 
 .m-menu__foot{
   margin-top:auto;
@@ -1509,25 +1512,31 @@ body::before{
   /* Counter-based numbering on list items */
   .m-menu ul{ counter-reset:mitem }
   .m-menu li{ counter-increment:mitem; border-bottom:1px solid var(--line) }
-  .m-menu a{
-    font-size:20px;
-    letter-spacing:.06em;
-    padding:16px 0;
+  /* Push items down from header for vertical balance */
+  .m-menu ul{ margin-top:24px }
+  .m-menu li > a{
+    font-size:22px;
+    letter-spacing:.05em;
+    padding:20px 4px;
+    gap:18px;
     display:flex;
     align-items:center;
-    justify-content:space-between;
+    justify-content:flex-start;
     transform:translateY(30px);
     opacity:0;
     transition:transform .6s var(--ease-3), opacity .45s var(--ease), color .2s var(--ease);
     min-height:auto;
   }
-  .m-menu a::before{
+  .m-menu li > a::before{
     font-size:10px;
     letter-spacing:.28em;
     color:var(--gold);
-    opacity:.7;
+    opacity:.85;
+    margin-right:0;
+    min-width:26px;
   }
-  .m-menu.open a{ transform:translateY(0); opacity:1 }
+  .m-menu li > a::after{ display:none } /* cleaner without trailing arrow on mobile */
+  .m-menu.open li > a{ transform:translateY(0); opacity:1 }
 
   .m-menu__foot{
     margin-top:auto;
