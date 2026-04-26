@@ -1,0 +1,11 @@
+# FAN-BUD — robots.txt
+# https://fan-bud.com/
+
+User-agent: *
+Allow: /
+
+# Block bots from hitting the lead-capture API endpoint
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://fan-bud.com/sitemap.xml
