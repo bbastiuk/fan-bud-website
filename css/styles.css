@@ -1503,30 +1503,47 @@ body::before{
   }
 
   /* ────────────────────────────────
-     HEADER
+     HEADER (mobile)
+     Critical: status-bar zone (env(safe-area-inset-top))
+     must be FULLY opaque so iOS Safari doesn't show
+     scrolled page content blurred behind the time/battery
+     indicators. Strategy:
+       1. Push header content below status bar with
+          padding-top: env(safe-area-inset-top).
+       2. The ::before backdrop fills the WHOLE header
+          including the safe-area zone, with the gradient
+          being 100% opaque from top to ~50% so the status
+          bar area never becomes transparent during scroll.
   ──────────────────────────────── */
   .nav,
   .h-right .btn-primary{ display:none }
   .burger{ display:flex }
 
-  /* Stronger glassmorphism on mobile — small screens have less space,
-     so the system layer needs more contrast to keep nav legible
-     even over bright hero content. */
+  /* Push header inner content below the iOS status bar */
+  .header{
+    padding-top:env(safe-area-inset-top, 0);
+  }
   .header::before{
-    -webkit-backdrop-filter:blur(18px) saturate(150%);
-    backdrop-filter:blur(18px) saturate(150%);
+    -webkit-backdrop-filter:blur(20px) saturate(150%);
+    backdrop-filter:blur(20px) saturate(150%);
+    /* TOP 40% fully opaque — covers the status bar safely,
+       even when page content scrolls underneath. Bottom
+       fades smoothly into the page so no hard edge. */
     background:linear-gradient(180deg,
-      rgba(6,6,7,.78) 0%,
-      rgba(6,6,7,.55) 50%,
-      rgba(6,6,7,.18) 80%,
-      rgba(6,6,7,0)   100%);
-    -webkit-mask-image:linear-gradient(180deg, #000 0%, #000 60%, transparent 100%);
-    mask-image:linear-gradient(180deg, #000 0%, #000 60%, transparent 100%);
+      rgba(6,6,7,1)    0%,
+      rgba(6,6,7,1)    40%,
+      rgba(6,6,7,.65)  75%,
+      rgba(6,6,7,0)    100%);
+    -webkit-mask-image:linear-gradient(180deg, #000 0%, #000 75%, transparent 100%);
+    mask-image:linear-gradient(180deg, #000 0%, #000 75%, transparent 100%);
   }
   .header.scrolled::before{
     -webkit-backdrop-filter:blur(28px) saturate(170%);
     backdrop-filter:blur(28px) saturate(170%);
-    background:rgba(6,6,7,.86);
+    /* On scroll: full opaque, no fade — clean solid bar */
+    background:rgba(6,6,7,.97);
+    -webkit-mask-image:none;
+    mask-image:none;
   }
 
   /* Language switcher stays visible in mobile header (UX) */
@@ -1565,7 +1582,8 @@ body::before{
      MOBILE MENU
   ──────────────────────────────── */
   .m-menu{
-    padding:60px var(--gutter) 0;
+    /* Top padding accounts for header (60px) + iOS safe-area */
+    padding:calc(60px + env(safe-area-inset-top, 0)) var(--gutter) 0;
     display:flex;
     flex-direction:column;
   }
@@ -1644,7 +1662,7 @@ body::before{
      Image shows top ~50%, content bottom.
   ──────────────────────────────── */
   .hero{
-    padding-top:60px;        /* = header height */
+    padding-top:calc(60px + env(safe-area-inset-top, 0)); /* header + iOS safe area */
     min-height:100svh;
     display:flex;
     flex-direction:column;
@@ -2518,7 +2536,7 @@ body::before{
   /* Hero fills exactly first screen, container is the first-screen box */
   .hero{
     height:100svh;
-    padding-top:60px;
+    padding-top:calc(60px + env(safe-area-inset-top, 0));
     display:flex;
     flex-direction:column;
     overflow:visible; /* stats that weren't moved stay visible */
