@@ -708,10 +708,15 @@ body::before{
 .section--pb-0{padding-bottom:0}
 .section--pt-0{padding-top:0}
 
-/* ---------- 9. Services ---------- */
+/* ---------- 9. Services ----------
+   4 service cards. Layout strategy:
+   - Desktop ≥1180px : 4 columns (editorial premium row)
+   - Tablet  ≤1180px : 2 columns × 2 rows
+   - Mobile  ≤768px  : 1 column (stacked)
+*/
 .services{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:var(--s-4);
 }
 .service{
@@ -1476,6 +1481,9 @@ body::before{
 @media (max-width:1180px){
   :root{--gutter:28px}
   .about__content{padding:64px 48px}
+  /* 4 services collapse to a 2x2 grid on tablets */
+  .services{grid-template-columns:repeat(2,1fr); gap:var(--s-4)}
+  .service{aspect-ratio: 3 / 3}  /* slightly squarer at this width — looks balanced 2x2 */
   .projects-grid{grid-template-columns:repeat(6,1fr)}
   .project:nth-child(1){grid-column:span 6;grid-row:span 1;display:block}
   .project:nth-child(1) .project__img{aspect-ratio:16/9;flex:unset;height:auto}
