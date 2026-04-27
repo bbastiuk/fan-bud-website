@@ -75,6 +75,25 @@ html{
   scroll-behavior:smooth;
   -webkit-text-size-adjust:100%;
   text-rendering:optimizeLegibility;
+  /* Solid dark canvas — guarantees no white flash and gives the
+     iOS Safari status-bar safe-area zone something opaque to fall
+     back on if any fixed layer fails to cover it. */
+  background:var(--ink);
+}
+/* Dedicated solid-black backdrop covering the iOS status-bar
+   safe-area. Sits between page content (hero etc.) and the fixed
+   header. On devices without a notch the height resolves to 0
+   (env value falls back to 0) so the rule is invisible. This fixes
+   the iOS Safari quirk where backdrop-filter on the header doesn't
+   reliably cover env(safe-area-inset-top). */
+html::before{
+  content:"";
+  position:fixed;
+  top:0; left:0; right:0;
+  height:env(safe-area-inset-top, 0);
+  background:var(--ink);
+  z-index:99;
+  pointer-events:none;
 }
 body{
   margin:0;
