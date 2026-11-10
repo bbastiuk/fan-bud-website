@@ -523,7 +523,7 @@
       </div>
 
       <div class="careers__form-wrap">
-        <form class="careers__form" id="careersForm" novalidate>
+        <form class="careers__form" id="careersForm">
           <div class="form-row">
             <div class="form-field">
               <label for="cf-fname" data-i18n="careers.fname">Imię</label>
@@ -539,11 +539,8 @@
               <label for="cf-phone" data-i18n="careers.phone">Telefon</label>
               <input type="tel" id="cf-phone" name="phone" autocomplete="tel" required>
             </div>
-            <div class="form-field">
-              <label for="cf-email" data-i18n="careers.email">E-mail</label>
-              <input type="email" id="cf-email" name="email" autocomplete="email" required>
-            </div>
           </div>
+          <p id="formError" role="alert" hidden data-i18n="careers.error">Nie udało się wysłać zgłoszenia. Spróbuj ponownie.</p>
           <div class="form-actions">
             <button type="submit" class="btn btn-dark careers__submit">
               <span data-i18n="careers.submit">Wyślij zgłoszenie</span>

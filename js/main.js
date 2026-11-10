@@ -84,7 +84,7 @@ const i18n = {
     'careers.fname':      'Imię',
     'careers.lname':      'Nazwisko',
     'careers.phone':      'Telefon',
-    'careers.email':      'E-mail',
+    'careers.error':      'Nie udało się wysłać zgłoszenia. Spróbuj ponownie.',
     'careers.submit':     'Wyślij zgłoszenie',
     'careers.success':    'Dziękujemy! Skontaktujemy się wkrótce.',
     'cta.eyebrow':        'Kontakt',
@@ -195,7 +195,7 @@ const i18n = {
     'careers.fname':      'Ім\'я',
     'careers.lname':      'Прізвище',
     'careers.phone':      'Телефон',
-    'careers.email':      'E-mail',
+    'careers.error':      'Не вдалося надіслати заявку. Спробуйте ще раз.',
     'careers.submit':     'Надіслати заявку',
     'careers.success':    'Дякуємо! Ми зв\'яжемося з вами найближчим часом.',
     'cta.eyebrow':        'Контакт',
@@ -348,6 +348,7 @@ async function submitLead(data) {
 
 const careersForm = document.getElementById('careersForm');
 const formSuccess = document.getElementById('formSuccess');
+const formError = document.getElementById('formError');
 
 if (careersForm) {
   careersForm.addEventListener('submit', async (e) => {
@@ -356,18 +357,22 @@ if (careersForm) {
     const fname = careersForm.fname.value.trim();
     const lname = careersForm.lname.value.trim();
     const phone = careersForm.phone.value.trim();
-    const email = careersForm.email.value.trim();
 
-    if (!fname || !lname || !phone || !email) return;
+    if (!fname || !lname || !phone) return;
+    formError.hidden = true;
 
     const submitBtn = careersForm.querySelector('.careers__submit');
     submitBtn.disabled = true;
     submitBtn.style.opacity = '0.6';
 
     try {
-      await submitLead({ fname, lname, phone, email });
+      await submitLead({ fname, lname, phone });
     } catch (err) {
       console.warn('Lead submission failed:', err);
+      formError.hidden = false;
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = '';
+      return;
     }
 
     // Update success message text for current language
