@@ -112,7 +112,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Bebas+Neue&family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="preload" as="image" href="assets/images/hero.jpg" fetchpriority="high">
 <link rel="stylesheet" href="css/styles.css">
@@ -231,7 +231,7 @@
       <img src="assets/images/logo_transparent.png" class="logo__img" alt="FAN-BUD (Fan Bud, Fanbud) — firma budowlana Poznań">
     </a>
 
-    <nav class="nav">
+    <nav class="nav" aria-label="Menu główne">
       <a href="#services" data-i18n="nav.services">Usługi</a>
       <a href="#about" data-i18n="nav.about">O nas</a>
       <a href="#process" data-i18n="nav.process">Jak działamy</a>
@@ -245,8 +245,11 @@
         <span class="lang__sep">/</span>
         <button data-lang="ua">UA</button>
       </div>
-      <a href="#contact" class="btn btn-primary btn--sm" data-i18n="header.cta">Bezpłatna wycena</a>
-      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <a href="#contact" class="btn btn-primary btn--sm header__cta">
+        <span class="label-long" data-i18n="header.cta">Bezpłatna wycena</span>
+        <span class="label-short" data-i18n="header.cta.short">Wycena</span>
+      </a>
+      <button class="burger" id="burger" aria-label="Menu" aria-controls="mMenu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -265,310 +268,258 @@
       <small data-i18n="m.contact.label">Zadzwoń do nas</small>
       <a href="tel:+48730716692">+48 730 716 692</a>
     </div>
-    <a href="#contact" class="btn btn-primary" style="width:100%" data-i18n="header.cta">Bezpłatna wycena</a>
+    <a href="#contact" class="btn btn-primary btn--block" data-i18n="header.cta">Bezpłatna wycena</a>
   </div>
 </div>
 
+<main>
+
 <!-- ===================== HERO ===================== -->
 <section class="hero">
-  <div class="hero__bg">
-    <img
-      src="assets/images/hero.jpg"
-      alt="Plac budowy z koparką i dźwigiem wieżowym o zachodzie słońca"
-      loading="eager"
-      fetchpriority="high"
-    />
-    <div class="hero__vignette"></div>
-  </div>
-
-  <div class="hero__index">01 — Strona główna</div>
-
-  <div class="container">
-    <div class="hero__inner">
-      <div class="hero__content">
-        <div class="eyebrow"><span data-i18n="hero.eyebrow">Poznań · Wielkopolska</span> <span class="eyebrow__num">2023</span></div>
-        <h1>
-          <span class="line"><span data-i18n="hero.h1.line1">Budowa</span></span>
-          <span class="line"><span data-i18n="hero.h1.line2">lub</span></span>
-          <span class="line"><span class="gold" data-i18n="hero.h1.line3">rozbiórka</span></span>
-        </h1>
-        <div class="hero__slogan" data-i18n="hero.slogan">FAN-BUD — Fani swojej pracy</div>
-        <p class="hero__desc" data-i18n="hero.desc">Generalne wykonawstwo, roboty betonowe, murarskie i&nbsp;wyburzenia dla inwestorów w&nbsp;Poznaniu i&nbsp;całej Wielkopolsce. Własna ekipa. Terminowo. Solidnie.</p>
-        <div class="hero__actions">
-          <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Bezpłatna wycena</a>
-          <a href="#about" class="btn btn-ghost" data-i18n-btn-ghost="hero.cta2">
-            <span data-i18n="hero.cta2">O firmie</span>
-            <span class="arrow"></span>
-          </a>
-        </div>
+  <div class="container hero__grid">
+    <div class="hero__content">
+      <p class="kicker" data-i18n="hero.eyebrow">Poznań · Wielkopolska</p>
+      <h1>
+        <span class="line"><span data-i18n="hero.h1.line1">Budowa</span></span>
+        <span class="line"><span data-i18n="hero.h1.line2">lub</span></span>
+        <span class="line"><span class="hl" data-i18n="hero.h1.line3">rozbiórka</span></span>
+      </h1>
+      <p class="hero__desc" data-i18n="hero.desc">Generalne wykonawstwo, roboty betonowe, murarskie, zbrojarskie i&nbsp;wyburzenia w&nbsp;Poznaniu i&nbsp;całej Wielkopolsce. Własna ekipa. Terminowo. Solidnie.</p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn-primary btn--lg" data-i18n="hero.cta1">Bezpłatna wycena</a>
+        <a href="tel:+48730716692" class="hero__phone">
+          <span class="hero__phone__icon"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
+          <span>
+            <small data-i18n="hero.phone.lbl">lub zadzwoń</small>
+            <strong>+48 730 716 692</strong>
+          </span>
+        </a>
       </div>
+      <p class="hero__slogan" data-i18n="hero.slogan">FAN-BUD — Fani swojej pracy</p>
     </div>
-  </div>
 
-  <div class="hero__caption">
-    <small data-i18n="hero.trust.label">Certyfikowany wykonawca</small>
+    <figure class="hero__media">
+      <img
+        src="assets/images/hero.jpg"
+        alt="Koparka i dźwig wieżowy na placu budowy o zachodzie słońca"
+        width="1536" height="1024"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </figure>
   </div>
+</section>
 
-  <div class="hero__scroll">
-    <span>Scroll</span>
-    <div class="hero__scroll__line"></div>
-  </div>
-
-  <!-- Stats strip -->
-  <div class="stats">
-    <div class="container">
-      <div class="stats__grid">
-        <div class="stat">
-          <div class="stat__icon"><svg><use href="#i-cal"/></svg></div>
-          <div>
-            <div class="stat__num gold" data-i18n="stat.1.num">10<span style="font-size:.7em">+</span></div>
-            <div class="stat__label" data-i18n="stat.1.label">Lata doświadczenia</div>
-          </div>
-        </div>
-        <div class="stat">
-          <div class="stat__icon"><svg><use href="#i-building"/></svg></div>
-          <div>
-            <div class="stat__num gold" data-i18n="stat.2.num">150<span style="font-size:.7em">+</span></div>
-            <div class="stat__label" data-i18n="stat.2.label">Zrealizowanych projektów</div>
-          </div>
-        </div>
-        <div class="stat">
-          <div class="stat__icon"><svg><use href="#i-team"/></svg></div>
-          <div>
-            <div class="stat__num gold" data-i18n="stat.3.num">100%</div>
-            <div class="stat__label" data-i18n="stat.3.label">Własna ekipa</div>
-          </div>
-        </div>
-        <div class="stat">
-          <div class="stat__icon"><svg><use href="#i-shield"/></svg></div>
-          <div>
-            <div class="stat__num gold" data-i18n="stat.4.num">Gwarancja</div>
-            <div class="stat__label" data-i18n="stat.4.label">Jakości wykonania</div>
-          </div>
-        </div>
+<!-- Stats strip -->
+<section class="stats" aria-label="FAN-BUD w liczbach">
+  <div class="container">
+    <div class="stats__grid">
+      <div class="stat">
+        <div class="stat__num" data-i18n="stat.1.num">10+</div>
+        <div class="stat__label" data-i18n="stat.1.label">Lata doświadczenia</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num" data-i18n="stat.2.num">150+</div>
+        <div class="stat__label" data-i18n="stat.2.label">Zrealizowanych projektów</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num" data-i18n="stat.3.num">100%</div>
+        <div class="stat__label" data-i18n="stat.3.label">Własna ekipa</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num" data-i18n="stat.4.num">Gwarancja</div>
+        <div class="stat__label" data-i18n="stat.4.label">Jakości wykonania</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ===================== SERVICES ===================== -->
-<section class="section" id="services">
+<section class="section section--concrete" id="services">
   <div class="container">
     <div class="s-head reveal">
-      <div class="eyebrow"><span data-i18n="services.eyebrow">Usługi</span> <span class="eyebrow__num">02</span></div>
-      <h2 class="s-title" data-i18n="services.title">Co <span class="gold">robimy</span></h2>
+      <p class="kicker" data-i18n="services.eyebrow">Usługi</p>
+      <h2 class="s-title" data-i18n="services.title">Co robimy</h2>
+      <p class="s-lead" data-i18n="services.lead">Budujemy od fundamentów po dach albo rozbieramy obiekty — w&nbsp;Poznaniu i&nbsp;całej Wielkopolsce. Każdą usługę wykonuje nasza własna ekipa.</p>
     </div>
 
     <div class="services">
-      <div class="service reveal" data-delay="1">
-        <div class="service__bg" style="background-image:url('assets/images/services/concrete.jpg')"></div>
-        <div class="service__num">01</div>
-        <svg class="service__icon"><use href="#i-concrete"/></svg>
-        <div class="service__body">
-          <h3 class="service__title" data-i18n="service.1.title">Roboty<br>betonowe</h3>
+      <article class="svc reveal">
+        <div class="svc__img"><img src="assets/images/services/concrete.jpg" alt="Betonowanie płyty na zbrojeniu" loading="lazy" style="object-position:50% 62%"></div>
+        <div class="svc__body">
+          <h3 class="svc__title" data-i18n="service.1.title">Roboty betonowe</h3>
+          <p class="svc__desc" data-i18n="service.1.desc">Fundamenty i&nbsp;konstrukcje betonowe budynku. Betonowanie łączymy z&nbsp;robotami zbrojarskimi, więc oba etapy prowadzi jedna ekipa.</p>
         </div>
-        <div class="service__line"></div>
-      </div>
+      </article>
 
-      <div class="service reveal" data-delay="2">
-        <div class="service__bg" style="background-image:url('assets/images/services/masonry.jpg')"></div>
-        <div class="service__num">02</div>
-        <svg class="service__icon"><use href="#i-brick"/></svg>
-        <div class="service__body">
-          <h3 class="service__title" data-i18n="service.2.title">Roboty<br>murarskie</h3>
+      <article class="svc reveal" data-delay="1">
+        <div class="svc__img"><img src="assets/images/services/masonry.jpg" alt="Murowanie ściany z cegły" loading="lazy" style="object-position:50% 58%"></div>
+        <div class="svc__body">
+          <h3 class="svc__title" data-i18n="service.2.title">Roboty murarskie</h3>
+          <p class="svc__desc" data-i18n="service.2.desc">Wznoszenie ścian i&nbsp;murów — kolejny etap budowy od fundamentów po dach, prowadzony przez tę samą, własną ekipę.</p>
         </div>
-        <div class="service__line"></div>
-      </div>
+      </article>
 
-      <div class="service reveal" data-delay="3">
-        <div class="service__bg" style="background-image:url('assets/images/services/demolition.jpg')"></div>
-        <div class="service__num">03</div>
-        <svg class="service__icon"><use href="#i-demo"/></svg>
-        <div class="service__body">
-          <h3 class="service__title" data-i18n="service.3.title">Wyburzenia<br>i&nbsp;rozbiórki</h3>
+      <article class="svc reveal">
+        <div class="svc__img"><img src="assets/images/services/demolition.jpg" alt="Koparka rozbiera betonowy budynek" loading="lazy" style="object-position:50% 52%"></div>
+        <div class="svc__body">
+          <h3 class="svc__title" data-i18n="service.3.title">Wyburzenia i&nbsp;rozbiórki</h3>
+          <p class="svc__desc" data-i18n="service.3.desc">Rozbiórka budynków i&nbsp;ich części w&nbsp;Poznaniu i&nbsp;Wielkopolsce — druga połowa naszej specjalizacji: budowa lub rozbiórka.</p>
         </div>
-        <div class="service__line"></div>
-      </div>
+      </article>
 
-      <div class="service reveal" data-delay="4">
-        <div class="service__bg" style="background-image:url('assets/images/services/zbrojenia.jpg')"></div>
-        <div class="service__num">04</div>
-        <svg class="service__icon"><use href="#i-rebar"/></svg>
-        <div class="service__body">
-          <h3 class="service__title" data-i18n="service.4.title">Roboty<br>zbrojarskie</h3>
+      <article class="svc reveal" data-delay="1">
+        <div class="svc__img"><img src="assets/images/services/zbrojenia.jpg" alt="Wiązanie zbrojenia ze stalowych prętów" loading="lazy" style="object-position:50% 68%"></div>
+        <div class="svc__body">
+          <h3 class="svc__title" data-i18n="service.4.title">Roboty zbrojarskie</h3>
+          <p class="svc__desc" data-i18n="service.4.desc">Przygotowanie i&nbsp;montaż zbrojenia pod fundamenty i&nbsp;inne elementy betonowe.</p>
         </div>
-        <div class="service__line"></div>
-      </div>
+      </article>
+    </div>
+
+    <div class="services__note reveal">
+      <p data-i18n="services.gc">Potrzebujesz kilku usług naraz? Poprowadzimy całą budowę jako generalny wykonawca.</p>
+      <a href="#contact" class="text-link"><span data-i18n="services.gc.link">Zapytaj o&nbsp;wycenę</span> <svg width="20" height="11" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>
 
 <!-- ===================== ABOUT ===================== -->
-<section class="section section--pt-0" id="about">
+<section class="section section--paper" id="about">
   <div class="container">
-    <div class="about reveal">
-      <div class="about__content">
-        <div class="eyebrow"><span data-i18n="about.eyebrow">O nas</span> <span class="eyebrow__num">03</span></div>
-        <h2 class="about__title" data-i18n="about.title">Budujemy<br>zaufanie</h2>
-        <p class="about__desc" data-i18n="about.desc">FAN-BUD to doświadczony zespół specjalistów z&nbsp;Poznania. Budujemy od fundamentów po dach — terminowo, solidnie i&nbsp;z&nbsp;dbałością o&nbsp;każdy detal.</p>
+    <div class="about">
+      <div class="about__content reveal">
+        <p class="kicker" data-i18n="about.eyebrow">O nas</p>
+        <h2 class="s-title" data-i18n="about.title">Własna ekipa<br>z Wielkopolski</h2>
+        <p class="about__desc" data-i18n="about.desc">FAN-BUD to firma budowlana z&nbsp;siedzibą w&nbsp;Bogdanowie. Pracujemy w&nbsp;Poznaniu i&nbsp;całej Wielkopolsce: budujemy od fundamentów po dach albo rozbieramy obiekty.</p>
+        <p class="about__desc" data-i18n="about.desc2">Wszystkie prace wykonuje nasza własna, wykwalifikowana ekipa. Każdy etap planujemy przed startem, a&nbsp;potem prowadzimy go terminowo i&nbsp;z&nbsp;dbałością o&nbsp;detale.</p>
 
-        <div class="about__marks">
-          <div class="about__mark">
-            <svg><use href="#i-check"/></svg>
-            <span data-i18n="about.mark.1">Własna wykwalifikowana ekipa</span>
-          </div>
-          <div class="about__mark">
-            <svg><use href="#i-check"/></svg>
-            <span data-i18n="about.mark.2">Ubezpieczenie OC 1&nbsp;mln&nbsp;zł</span>
-          </div>
-          <div class="about__mark">
-            <svg><use href="#i-check"/></svg>
-            <span data-i18n="about.mark.3">Certyfikaty jakości ISO</span>
-          </div>
-          <div class="about__mark">
-            <svg><use href="#i-check"/></svg>
-            <span data-i18n="about.mark.4">Bezpłatna wycena w&nbsp;48h</span>
-          </div>
-        </div>
+        <dl class="facts">
+          <div class="fact"><dt data-i18n="about.f.region.k">Region</dt><dd data-i18n="about.f.region.v">Poznań i&nbsp;cała Wielkopolska</dd></div>
+          <div class="fact"><dt data-i18n="about.f.hq.k">Siedziba</dt><dd>Bogdanowo, Słoneczna&nbsp;1</dd></div>
+          <div class="fact"><dt data-i18n="about.f.team.k">Ekipa</dt><dd data-i18n="about.f.team.v">100% własna</dd></div>
+          <div class="fact"><dt data-i18n="about.f.exp.k">Doświadczenie</dt><dd data-i18n="about.f.exp.v">10+ lat na rynku budowlanym</dd></div>
+          <div class="fact"><dt data-i18n="about.f.oc.k">Ubezpieczenie</dt><dd data-i18n="about.f.oc.v">OC 1&nbsp;mln&nbsp;zł</dd></div>
+          <div class="fact"><dt data-i18n="about.f.iso.k">Jakość</dt><dd data-i18n="about.f.iso.v">Certyfikaty jakości ISO</dd></div>
+        </dl>
       </div>
 
-      <div class="about__image">
-        <img src="assets/images/about.jpg" alt="Pracownik FAN-BUD na placu budowy" loading="lazy">
-        <div class="about__badge">
-          <div class="about__badge__num" data-i18n="about.badge.num">10</div>
-          <div class="about__badge__lbl" data-i18n="about.badge.lbl">Lata na rynku budowlanym</div>
-        </div>
+      <div class="about__image reveal" data-delay="1">
+        <img src="assets/images/about.jpg" alt="Pracownicy w kamizelkach odblaskowych na placu budowy" loading="lazy" width="1536" height="1024">
       </div>
     </div>
   </div>
 </section>
 
 <!-- ===================== PROCESS ===================== -->
-<section class="section section--pt-0" id="process">
+<section class="section section--concrete" id="process">
   <div class="container">
     <div class="s-head reveal">
-      <div class="eyebrow"><span data-i18n="process.eyebrow">Jak działamy</span> <span class="eyebrow__num">04</span></div>
-      <h2 class="s-title" data-i18n="process.title">Prosty <span class="gold">proces</span></h2>
+      <p class="kicker" data-i18n="process.eyebrow">Jak działamy</p>
+      <h2 class="s-title" data-i18n="process.title">Od telefonu do odbioru</h2>
+      <p class="s-lead" data-i18n="process.lead">Cztery kroki — od pierwszej rozmowy do przekazania gotowego obiektu.</p>
     </div>
 
-    <div class="process reveal">
-      <div class="step">
-        <div class="step__icon"><svg><use href="#i-phone"/></svg></div>
-        <div class="step__num" data-i18n="step.1.num">01 · Krok</div>
-        <div class="step__title" data-i18n="step.1.title">Kontakt</div>
-        <p class="step__desc" data-i18n="step.1.desc">Zadzwoń lub napisz do nas — odpowiadamy w&nbsp;ciągu 24&nbsp;godzin.</p>
-      </div>
-      <div class="step">
-        <div class="step__icon"><svg><use href="#i-doc"/></svg></div>
-        <div class="step__num" data-i18n="step.2.num">02 · Krok</div>
-        <div class="step__title" data-i18n="step.2.title">Wycena</div>
-        <p class="step__desc" data-i18n="step.2.desc">Bezpłatna wycena i&nbsp;ustalenie pełnego zakresu prac.</p>
-      </div>
-      <div class="step">
-        <div class="step__icon"><svg><use href="#i-helmet"/></svg></div>
-        <div class="step__num" data-i18n="step.3.num">03 · Krok</div>
-        <div class="step__title" data-i18n="step.3.title">Realizacja</div>
-        <p class="step__desc" data-i18n="step.3.desc">Wykonujemy prace terminowo i&nbsp;na bieżąco informujemy o&nbsp;postępach.</p>
-      </div>
-      <div class="step">
-        <div class="step__icon"><svg><use href="#i-check"/></svg></div>
-        <div class="step__num" data-i18n="step.4.num">04 · Krok</div>
-        <div class="step__title" data-i18n="step.4.title">Odbiór</div>
+    <ol class="steps reveal">
+      <li class="step">
+        <span class="step__num" aria-hidden="true">1</span>
+        <h3 class="step__title" data-i18n="step.1.title">Kontakt</h3>
+        <p class="step__desc" data-i18n="step.1.desc">Dzwonisz lub piszesz. Odpowiadamy w&nbsp;ciągu 24&nbsp;godzin.</p>
+      </li>
+      <li class="step">
+        <span class="step__num" aria-hidden="true">2</span>
+        <h3 class="step__title" data-i18n="step.2.title">Wycena</h3>
+        <p class="step__desc" data-i18n="step.2.desc">Ustalamy pełny zakres prac i&nbsp;przygotowujemy bezpłatną wycenę — w&nbsp;48&nbsp;godzin.</p>
+      </li>
+      <li class="step">
+        <span class="step__num" aria-hidden="true">3</span>
+        <h3 class="step__title" data-i18n="step.3.title">Realizacja</h3>
+        <p class="step__desc" data-i18n="step.3.desc">Prace wykonuje nasza własna ekipa — terminowo i&nbsp;z&nbsp;bieżącą informacją o&nbsp;postępach.</p>
+      </li>
+      <li class="step">
+        <span class="step__num" aria-hidden="true">4</span>
+        <h3 class="step__title" data-i18n="step.4.title">Odbiór</h3>
         <p class="step__desc" data-i18n="step.4.desc">Oddajemy gotowy obiekt z&nbsp;pełną dokumentacją i&nbsp;gwarancją.</p>
-      </div>
+      </li>
+    </ol>
+
+    <div class="process__cta reveal">
+      <a href="#contact" class="btn btn-primary btn--lg" data-i18n="process.cta">Zacznij od bezpłatnej wyceny</a>
     </div>
   </div>
 </section>
 
-<!-- ===================== BLUEPRINT ===================== -->
-<section class="section section--pt-0 blueprint" id="blueprint">
-  <div class="container">
-    <div class="blueprint__wrap">
-      <div class="blueprint__text reveal">
-        <div class="eyebrow"><span data-i18n="blueprint.eyebrow">Nasze DNA</span> <span class="eyebrow__num">05</span></div>
-        <h2 class="s-title" data-i18n="blueprint.title">Precyzja<br><span class="gold">w każdym projekcie</span></h2>
-        <p class="blueprint__desc" data-i18n="blueprint.desc">Każda realizacja to inżynierski dokument — każda linia obliczona, każdy etap zaplanowany i wykonany bez kompromisów.</p>
+<!-- ===================== CONTACT ===================== -->
+<section class="contact" id="contact">
+  <div class="container contact__grid">
+    <div class="contact__intro reveal">
+      <p class="kicker" data-i18n="cta.eyebrow">Kontakt</p>
+      <h2 class="s-title" data-i18n="cta.title">Bezpłatna <span class="hl">wycena</span></h2>
+      <p class="contact__desc" data-i18n="cta.desc">Zadzwoń lub napisz — odpowiadamy w&nbsp;ciągu 24&nbsp;godzin, a&nbsp;bezpłatną wycenę przygotowujemy w&nbsp;48&nbsp;godzin.</p>
+
+      <div class="contact__need">
+        <p class="contact__need__title" data-i18n="cta.need.title">Co warto podać:</p>
+        <ul>
+          <li data-i18n="cta.need.1">Rodzaj prac — budowa, rozbiórka lub konkretna usługa</li>
+          <li data-i18n="cta.need.2">Lokalizację obiektu</li>
+          <li data-i18n="cta.need.3">Przybliżony zakres lub wymiary</li>
+          <li data-i18n="cta.need.4">Projekt lub zdjęcia, jeśli je masz</li>
+        </ul>
       </div>
-      <div class="blueprint__drawing reveal" id="blueprintSvg">
-        <svg viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg" fill="none" class="bp-svg" aria-hidden="true">
-          <!-- Ground -->
-          <line x1="60" y1="345" x2="840" y2="345" class="bp-l" style="--bd:0s"/>
-          <!-- Outer walls -->
-          <line x1="100" y1="345" x2="100" y2="80" class="bp-l" style="--bd:.15s"/>
-          <line x1="800" y1="345" x2="800" y2="80" class="bp-l" style="--bd:.22s"/>
-          <!-- Roof peak -->
-          <polyline points="80,80 450,14 820,80" class="bp-l" style="--bd:.35s"/>
-          <!-- Roof base -->
-          <line x1="80" y1="80" x2="820" y2="80" class="bp-l" style="--bd:.5s"/>
-          <!-- Floor divider -->
-          <line x1="100" y1="220" x2="800" y2="220" class="bp-l" style="--bd:.62s"/>
-          <!-- Columns -->
-          <line x1="280" y1="80" x2="280" y2="345" class="bp-l" style="--bd:.72s"/>
-          <line x1="450" y1="80" x2="450" y2="345" class="bp-l" style="--bd:.78s"/>
-          <line x1="620" y1="80" x2="620" y2="345" class="bp-l" style="--bd:.84s"/>
-          <!-- Upper windows -->
-          <rect x="120" y="102" width="130" height="85" rx="1" class="bp-l" style="--bd:.94s"/>
-          <rect x="300" y="102" width="120" height="85" rx="1" class="bp-l" style="--bd:1.02s"/>
-          <rect x="480" y="102" width="120" height="85" rx="1" class="bp-l" style="--bd:1.08s"/>
-          <rect x="650" y="102" width="130" height="85" rx="1" class="bp-l" style="--bd:1.14s"/>
-          <!-- Lower windows left -->
-          <rect x="120" y="240" width="120" height="72" rx="1" class="bp-l" style="--bd:1.2s"/>
-          <rect x="300" y="240" width="80" height="72" rx="1" class="bp-l" style="--bd:1.26s"/>
-          <!-- Center door -->
-          <rect x="410" y="258" width="80" height="87" rx="1" class="bp-l" style="--bd:1.32s"/>
-          <!-- Lower windows right -->
-          <rect x="520" y="240" width="80" height="72" rx="1" class="bp-l" style="--bd:1.38s"/>
-          <rect x="660" y="240" width="120" height="72" rx="1" class="bp-l" style="--bd:1.44s"/>
-          <!-- Dimension line horizontal -->
-          <line x1="100" y1="362" x2="800" y2="362" class="bp-dim" style="--bd:1.6s"/>
-          <line x1="100" y1="356" x2="100" y2="368" class="bp-dim" style="--bd:1.6s"/>
-          <line x1="800" y1="356" x2="800" y2="368" class="bp-dim" style="--bd:1.6s"/>
-          <!-- Dimension line vertical -->
-          <line x1="36" y1="80" x2="36" y2="345" class="bp-dim" style="--bd:1.68s"/>
-          <line x1="30" y1="80" x2="42" y2="80" class="bp-dim" style="--bd:1.68s"/>
-          <line x1="30" y1="345" x2="42" y2="345" class="bp-dim" style="--bd:1.68s"/>
-          <!-- Accent dots -->
-          <circle cx="100" cy="80" r="3.5" class="bp-dot" style="--bd:1.5s"/>
-          <circle cx="800" cy="80" r="3.5" class="bp-dot" style="--bd:1.52s"/>
-          <circle cx="450" cy="14" r="3.5" class="bp-dot" style="--bd:1.54s"/>
-        </svg>
-      </div>
+    </div>
+
+    <div class="contact__options reveal" data-delay="1">
+      <a href="tel:+48730716692" class="c-opt c-opt--primary">
+        <span class="c-opt__icon"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
+        <span class="c-opt__text">
+          <span class="c-opt__lbl" data-i18n="cta.phone.lbl">Zadzwoń · 24/7</span>
+          <span class="c-opt__val">+48 730 716 692</span>
+          <span class="c-opt__hint" data-i18n="cta.phone.hint">Omówimy zakres prac od razu przez telefon.</span>
+        </span>
+      </a>
+      <a href="mailto:dombyk@fan-bud.com?subject=Bezp%C5%82atna%20wycena" class="c-opt">
+        <span class="c-opt__icon"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+        <span class="c-opt__text">
+          <span class="c-opt__lbl" data-i18n="cta.email.lbl">Napisz e-mail</span>
+          <span class="c-opt__val">dombyk@fan-bud.com</span>
+          <span class="c-opt__hint" data-i18n="cta.email.hint">Opisz prace i&nbsp;dołącz zdjęcia lub projekt.</span>
+        </span>
+      </a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Bogdanowo+S%C5%82oneczna+1" target="_blank" rel="noopener" class="contact__addr">
+        <svg aria-hidden="true"><use href="#i-pin"/></svg>
+        <span><span data-i18n="cta.address.lbl">Siedziba</span>: <span data-i18n="cta.address.val">Bogdanowo, Słoneczna 1</span></span>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- ===================== CAREERS ===================== -->
-<section class="section section--pt-0 careers" id="careers">
+<section class="section section--paper careers" id="careers">
   <div class="container">
-    <div class="careers__head reveal">
-      <div>
-        <div class="eyebrow"><span data-i18n="careers.eyebrow">Kariera</span> <span class="eyebrow__num">06</span></div>
-        <h2 class="s-title" data-i18n="careers.title">Dołącz do <span class="gold">zespołu</span></h2>
-      </div>
-    </div>
-
     <div class="careers__grid reveal">
       <div class="careers__info">
+        <p class="kicker" data-i18n="careers.eyebrow">Kariera</p>
+        <h2 class="s-title" data-i18n="careers.title">Dołącz do zespołu</h2>
         <p class="careers__desc" data-i18n="careers.desc">Szukamy doświadczonych pracowników budowlanych. Oferujemy stabilne zatrudnienie, godziwe wynagrodzenie i pracę w&nbsp;zgranym zespole.</p>
-        <div class="careers__slogan">FAN-BUD — Fani swojej pracy</div>
         <ul class="careers__perks">
           <li class="careers__perk">
-            <svg><use href="#i-check"/></svg>
+            <svg aria-hidden="true"><use href="#i-check"/></svg>
             <span data-i18n="careers.perk.1">Stabilne zatrudnienie</span>
           </li>
           <li class="careers__perk">
-            <svg><use href="#i-check"/></svg>
+            <svg aria-hidden="true"><use href="#i-check"/></svg>
             <span data-i18n="careers.perk.2">Godziwe wynagrodzenie</span>
           </li>
           <li class="careers__perk">
-            <svg><use href="#i-check"/></svg>
+            <svg aria-hidden="true"><use href="#i-check"/></svg>
             <span data-i18n="careers.perk.3">Praca w zgranym zespole</span>
           </li>
           <li class="careers__perk">
-            <svg><use href="#i-check"/></svg>
+            <svg aria-hidden="true"><use href="#i-check"/></svg>
             <span data-i18n="careers.perk.4">Nowoczesny sprzęt</span>
           </li>
         </ul>
+        <p class="careers__slogan">FAN-BUD — Fani swojej pracy</p>
       </div>
 
       <div class="careers__form-wrap">
@@ -594,12 +545,12 @@
             </div>
           </div>
           <div class="form-actions">
-            <button type="submit" class="btn btn-primary careers__submit">
+            <button type="submit" class="btn btn-dark careers__submit">
               <span data-i18n="careers.submit">Wyślij zgłoszenie</span>
-              <svg width="20" height="11"><use href="#i-arrow"/></svg>
+              <svg width="20" height="11" aria-hidden="true"><use href="#i-arrow"/></svg>
             </button>
             <div class="form-success" id="formSuccess" aria-live="polite">
-              <svg><use href="#i-check"/></svg>
+              <svg aria-hidden="true"><use href="#i-check"/></svg>
               <span data-i18n="careers.success">Dziękujemy! Skontaktujemy się wkrótce.</span>
             </div>
           </div>
@@ -609,42 +560,7 @@
   </div>
 </section>
 
-<!-- ===================== CTA / CONTACT ===================== -->
-<section class="cta" id="contact">
-  <div class="cta__bg">
-    <img src="assets/images/cta-bg.jpg" alt="" loading="lazy">
-  </div>
-  <div class="container cta__inner">
-    <div>
-      <div class="eyebrow"><span data-i18n="cta.eyebrow">Kontakt</span> <span class="eyebrow__num">07</span></div>
-      <h2 class="cta__title" data-i18n="cta.title">Masz pytania?<br><span class="gold">Zadzwoń do nas</span></h2>
-      <p class="cta__desc" data-i18n="cta.desc">Odpowiadamy w&nbsp;ciągu 24&nbsp;godzin. Bezpłatna wycena, doradztwo techniczne, jasno określony zakres prac.</p>
-    </div>
-    <div class="cta__contacts">
-      <a href="tel:+48730716692" class="cta__row">
-        <div class="cta__row__icon"><svg><use href="#i-phone"/></svg></div>
-        <div>
-          <div class="cta__row__lbl" data-i18n="cta.phone.lbl">Telefon · 24/7</div>
-          <div class="cta__row__val">+48 730 716 692</div>
-        </div>
-      </a>
-      <a href="mailto:dombyk@fan-bud.com" class="cta__row">
-        <div class="cta__row__icon"><svg><use href="#i-mail"/></svg></div>
-        <div>
-          <div class="cta__row__lbl" data-i18n="cta.email.lbl">E-mail</div>
-          <div class="cta__row__val">dombyk@fan-bud.com</div>
-        </div>
-      </a>
-      <a href="https://www.google.com/maps/search/?api=1&query=Bogdanowo+S%C5%82oneczna+1" target="_blank" rel="noopener" class="cta__row">
-        <div class="cta__row__icon"><svg><use href="#i-pin"/></svg></div>
-        <div>
-          <div class="cta__row__lbl" data-i18n="cta.address.lbl">Siedziba</div>
-          <div class="cta__row__val" data-i18n="cta.address.val">Bogdanowo, Słoneczna 1</div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
+</main>
 
 <!-- ===================== FOOTER ===================== -->
 <footer class="footer">
@@ -678,10 +594,10 @@
       <div class="footer__col">
         <h4 data-i18n="footer.services.title">Usługi</h4>
         <ul>
-          <li><a href="#" data-i18n="footer.services.1">Roboty betonowe</a></li>
-          <li><a href="#" data-i18n="footer.services.2">Roboty murarskie</a></li>
-          <li><a href="#" data-i18n="footer.services.3">Wyburzenia</a></li>
-          <li><a href="#" data-i18n="footer.services.4">Generalne wykonawstwo</a></li>
+          <li><a href="#services" data-i18n="footer.services.1">Roboty betonowe</a></li>
+          <li><a href="#services" data-i18n="footer.services.2">Roboty murarskie</a></li>
+          <li><a href="#services" data-i18n="footer.services.3">Wyburzenia</a></li>
+          <li><a href="#services" data-i18n="footer.services.4">Generalne wykonawstwo</a></li>
         </ul>
       </div>
 
@@ -701,10 +617,9 @@
 
     <div class="footer__bottom">
       <div data-i18n="footer.copy">© 2023 FAN-BUD. Wszystkie prawa zastrzeżone.</div>
-      <div style="display:flex;gap:var(--s-5);flex-wrap:wrap">
+      <div class="footer__legal">
         <a href="#" data-i18n="footer.privacy">Polityka prywatności</a>
         <a href="#" data-i18n="footer.terms">Regulamin</a>
-        <span style="color:var(--line-2)">·</span>
         <span>NIP: 6060101423</span>
       </div>
     </div>
